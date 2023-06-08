@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
+// here is apporoach of indexing with value of the array block
 void Missing(vector<int> &arr)
 {
     for (int i = 0; i < arr.size(); i++)
