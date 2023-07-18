@@ -96,19 +96,21 @@ void insertAtPosition(Node *&head, Node *&tail, int pos, int data)
         tail = newNode;
         return;
     }
-    //step1: find the position: prev & curr;
+    // step1: find the position: prev & curr;
 
-        if(pos == 0) {
-                insertAthead(head, tail , data);
-                return;
-        }
-       
-        int len = findLength(head);
-        
-        if(pos >= len) {
-                insertAttail(head, tail, data);
-                return;
-        }
+    if (pos == 0)
+    {
+        insertAthead(head, tail, data);
+        return;
+    }
+
+    int len = findLength(head);
+
+    if (pos >= len)
+    {
+        insertAttail(head, tail, data);
+        return;
+    }
     // step:-> find a position at which we have to insert
 
     int i = 1;
@@ -131,6 +133,76 @@ void insertAtPosition(Node *&head, Node *&tail, int pos, int data)
     // step 3:- make newNode as next of prev node
 
     prev->next = newNode;
+}
+
+void deleteNode(Node *&head, Node *&tail, int pos)
+{
+    if (head == NULL)
+    {
+        cout << "LL is empty " << endl;
+        return;
+    }
+    // deleting at pos 1 i.e head
+    if (pos == 1)
+    {
+        // create temp node
+        Node *temp = head;
+        // make next node as head
+        head = head->next;
+        // disconnect temp with ll
+        temp->next = NULL;
+        // delete temp
+        delete temp;
+        return;
+    }
+
+    int len = findLength(head);
+
+    // deleting last node i.e tail
+    if (pos == len)
+    {
+        int i = 1;
+        Node *prev = head;
+        while (i < pos - 1)
+        {
+            prev = prev->next;
+            i++;
+        }
+        // create temp node
+        Node *temp = tail;
+        // make prev next la null
+        prev->next = NULL;
+
+        prev = tail;
+
+        delete temp;
+        return;
+    }
+
+    // deleting middle node
+    // find the positon and delclear left curr and right node as current haver\ to delete
+    int i = 1;
+    Node *left = head;
+    while (i < pos - 1)
+    {
+        left = left->next;
+        i++;
+    }
+    Node *curr = left->next;
+    Node *right = curr->next;
+
+    // create temp;
+    Node *temp = curr;
+
+    // make left next as right
+    left->next = right;
+
+    // curr next =null
+    curr->next = NULL;
+    // delete temp
+
+    delete temp;
+  
 }
 
 int main(int argc, char const *argv[])
@@ -156,6 +228,9 @@ int main(int argc, char const *argv[])
     insertAtPosition(head, tail, 2, 66);
 
     printLL(head);
+    cout << endl;
 
+    deleteNode(head, tail, 4);
+    printLL(head);
     return 0;
 }
