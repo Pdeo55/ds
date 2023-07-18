@@ -202,7 +202,6 @@ void deleteNode(Node *&head, Node *&tail, int pos)
     // delete temp
 
     delete temp;
-  
 }
 
 int main(int argc, char const *argv[])
@@ -215,10 +214,10 @@ int main(int argc, char const *argv[])
     {
         insertAthead(head, tail, 10 * i);
     }
-    //    for (int i = 6; i < 10; i++)
-    // {
-    //     insertAttail(head, tail, 10 * i);
-    // }
+    /*   for (int i = 6; i < 10; i++)
+    {
+        insertAttail(head, tail, 10 * i);
+    } */
 
     /* insertIntoLL(head,20);
     insertIntoLL(head,30);
