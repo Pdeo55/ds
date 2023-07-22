@@ -32,6 +32,7 @@ bool isCyclic(node* &head){
             slow=slow->next;
           
         }
+        //agar fast and slow mil gaye matlab cycle hai
           if(fast==slow){
                 return true;
             }
@@ -40,6 +41,77 @@ bool isCyclic(node* &head){
     return false;
 }
 
+
+node* firstNodeofLoop(node* &head){
+    if(head==NULL){
+        cout<<"ll is empty";
+        return NULL;
+    }
+    node* slow=head;
+    node* fast = head;
+
+    while(fast!=NULL){
+        fast=fast->next;
+        if(fast!=NULL){
+            fast=fast->next;
+            slow=slow->next;
+          
+        }
+        //again start slow from head  A+xC+B wala logic lagaya hai notes me hai
+          if(fast==slow){
+                slow=head;
+                break;
+            }
+    }
+    while(slow!=fast){
+        //fast jo same pointer tha wahase chalega and slow head se chalega
+        slow=slow->next;
+        fast=fast->next;
+    }
+    return slow;
+}
+
+
+
+void removeLoop(node* &head){
+    if(head==NULL){
+        cout<<"ll is empty";
+        return;
+    }
+    node* slow=head;
+    node* fast = head;
+
+    while(fast!=NULL){
+        fast=fast->next;
+        if(fast!=NULL){
+            fast=fast->next;
+            slow=slow->next;
+          
+        }
+        //again start slow from head  A+xC+B wala logic lagaya hai notes me hai
+          if(fast==slow){
+                slow=head;
+                break;
+            }
+    }
+    node* prev=fast;
+    while(slow!=fast){
+        prev=fast;
+        slow=slow->next;
+        fast=fast->next;
+    }
+    prev->next=NULL;
+   
+}
+void printLL(node *&head)
+{
+    node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
 int main(int argc, char const *argv[])
 {
     node *f1 = new node(10);
@@ -67,7 +139,17 @@ int main(int argc, char const *argv[])
     
 
  
-        cout<<"cycle is present there "<<isCyclic(f1);
+        cout<<"cycle is present there "<<isCyclic(f1)<<endl;
+        cout<<"starting point of loop cycle is "<<firstNodeofLoop(f1)->data<<endl;
+        removeLoop(f1);
+        if (isCyclic(f1))
+        {
+            cout<<"we cant print LL as it is circular "<<endl;
+        }else{
+            cout<<"loop is removed now printing LL :-"<<endl;
+            printLL(f1);
+        }
+        
  
 
     // cout << "middle element is :- " << getMiddle(f1)->data << endl;
