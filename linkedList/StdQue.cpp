@@ -19,6 +19,17 @@ public:
         this->next = NULL;
     }
 };
+int findLength(node* &head)
+{
+    node *temp = head;
+    int l = 0;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        l++;
+    }
+    return l;
+}
 
 void printLL(node *&head)
 {
@@ -29,6 +40,7 @@ void printLL(node *&head)
         temp = temp->next;
     }
 }
+// get middle element , slow-fast ,tortoil algo
 
 node *getMiddle(node *head)
 {
@@ -62,6 +74,40 @@ node *getMiddle(node *head)
     }
     return slow;
 }
+
+
+node* reverseKnode(node* head,int k){
+    if(head==NULL){
+        cout<<"LL is empty";
+        return head;
+    }
+     int len = findLength(head);
+ //if k is greater than length of LL
+     if(len<k){
+        return head;
+     }
+
+     //reverse the remaing sets
+     node* prev =NULL;
+     node* curr = head;
+     node* forward = curr->next;
+
+    //  step 1 :- 1 step solve karlo
+    int count =1;
+     while(count < k){
+            forward= curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=forward;
+            count++;
+     }
+    //  step 2 :- recursive call 
+    if(forward!=NULL){
+            head->next= reverseKnode(forward,k);
+    }
+    //step 3:-  give head of new ll
+    return prev;
+}
 int main(int argc, char const *argv[])
 {
     node *f1 = new node(10);
@@ -82,6 +128,9 @@ int main(int argc, char const *argv[])
     printLL(f1);
     cout << endl;
 
-    cout << "middle element is :- " << getMiddle(f1)->data << endl;
+    node*head=reverseKnode(f1,3);
+    printLL(head);
+
+    // cout << "middle element is :- " << getMiddle(f1)->data << endl;
     return 0;
 }
