@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+
+void foo(int &a){
+  cout<<a;
+  }
+
 int main() {
 //   int a = 5;
 //   int b = 5;
@@ -61,6 +66,9 @@ int main() {
         int* q = p;
         int* r = q;
 
+
+      foo(a);
+      cout<<endl;
         cout << a << endl; //10
         cout << &a << endl; //address of a 
         cout << p << endl; //address of a 

@@ -120,6 +120,7 @@ int main(int argc, char const *argv[])
     getMin(arr, row, col);
 
     vector<vector<int>> arrVEC(row, vector<int>(col, -8));
+    
     for (int i = 0; i < arrVEC.size(); i++)
     {
         for (int j = 0; j < arrVEC[i].size(); j++)
