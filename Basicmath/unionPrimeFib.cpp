@@ -20,6 +20,9 @@ bool is_prime(int n)
         }
     }
     return true;
+
+
+ 
 }
 
 // find all prime numbers upto n
@@ -91,6 +94,9 @@ void printVector(vector<int> arr)
         cout << arr[i] << " ";
     }
 }
+
+
+
 int main(int argc, char const *argv[])
 {
     int n;

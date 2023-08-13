@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-//by devide apporoach
+// by devide apporoach
 int decimaltobinary(int n)
 {
     int binaryno = 0;
@@ -12,12 +11,15 @@ int decimaltobinary(int n)
 
         // int bits = n % 2;
         int bits = (n & 1);
+        //showing binary representation
         binaryno = bits * pow(10, i++) + binaryno;
 
         // n = n / 2;
         n=n>>1;
     }
     return binaryno;
+
+
 }
 
 int main(int argc, char const *argv[])

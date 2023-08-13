@@ -50,34 +50,33 @@ int Extreams(int arr[], int size)
     while (start <= end)
     {
 
-       
-        
-        cout << arr[start]<<" ";
-        cout << arr[end]<<" ";
+        cout << arr[start] << " ";
+        cout << arr[end] << " ";
         start++;
         end--;
     }
 }
 
-int Reverse(int arr[],int size){
+int Reverse(int arr[], int size)
+{
     int start = 0;
-	int end = size-1;
+    int end = size - 1;
 
-	while(start<=end) {
+    while (start <= end)
+    {
 
-		//step1:
-		swap(arr[start], arr[end]);
-		//step:2
-		start++;
-		//step3
-		end--;
-		
-	}
+        // step1:
+        swap(arr[start], arr[end]);
+        // step:2
+        start++;
+        // step3
+        end--;
+    }
 
-
-	for(int i=0; i<size; i++) {
-		cout << arr[i] << " ";
-	}
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
     return 0;
 }
 
@@ -104,7 +103,7 @@ int main()
 
     cout << "Minimum of array is:- " << minNumber(arr, size) << endl;
     cout << "printing extreams array is:- " << Extreams(arr, size) << endl;
-    cout << "printing Reverse array is:- "<< Reverse(arr, size) << endl;
+    cout << "printing Reverse array is:- " << Reverse(arr, size) << endl;
 
     return 0;
 }
