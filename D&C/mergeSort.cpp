@@ -31,7 +31,7 @@ void mergeArray(int *arr, int s, int e)
     }
 
     // lets right now merging logic that is based on two pointer aaporach we just compare right and left array elements
-    //  add it into the array in sorted format if any of the list gr=et empty first we will just append
+    //  add it into the array in sorted format if any of the list get empty first we will just append
     // remianng elements into it directly
 
     int leftkaindex = 0; //pointer index
