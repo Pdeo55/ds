@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+//apporoach 1 :- sorting  tc = nlogn
+
+//Apporoach 2 :- dutch national flag approach
 //we will arrange all the numbers to the left side of the arrays using 2 pointer approach
 
 //time complexity =O(n)
@@ -13,8 +17,8 @@ void printArray(vector<int> arr){
     
 }
 void NegativeToLeft(vector<int>& arr){
-    int l =0;
-    int h=arr.size()-1;
+    int l =0; // handle all negetive no
+    int h=arr.size()-1; //handle all positive no
 
   while (l<h)
   {

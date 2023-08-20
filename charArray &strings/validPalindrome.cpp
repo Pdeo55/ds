@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 class Solution {
 public:
     bool checkPalindrome(string s, int i, int j ) {
@@ -27,6 +31,11 @@ public:
         return true;
     }
 };
+int main(int argc, char const *argv[])
+{
+    /* code */
+    return 0;
+}
 
 
 

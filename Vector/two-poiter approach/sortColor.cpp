@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+//approach 1 :- sorting
+
+//appproach 2 :- counting 0 1 &2 and the append it into other array 
 void printArray(vector<int> arr)
 {
     for (auto i : arr)
